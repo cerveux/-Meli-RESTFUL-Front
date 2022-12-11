@@ -3,9 +3,7 @@ import "./Modal.css";
 
 
 
-export default function Modal({children, isOpen, closeModal}){
-    console.log(isOpen);
-  
+export default function Modal({children, isOpen, closeModal}){  
 
     return(
 <>

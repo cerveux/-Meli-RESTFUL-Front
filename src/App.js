@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Buscador from "./components/Buscador";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -13,7 +13,22 @@ function App() {
   const [item, setItem] = useState(null);
   const [descripcion, setDescripcion] = useState(null);
 
-  const url = "https://meli-restful-api-cerveux.up.railway.app/";
+  const condUrl1 = "https://meli-restful-api-cerveux.up.railway.app/";
+  const condUrl2 = "https://meli-restful-api-cerveux.onrender.com/";
+  let url = "";
+
+  useEffect(() => {
+    fetch(condUrl2)
+      .then((res) => (res.json()))
+      .catch(err => console.error(err))
+
+    fetch(condUrl1)
+      .then((res) => (res.json()))
+      .then(item => item.status)
+      .then(item => (item === "server running") ? (url = condUrl1) : (url = condUrl2) )
+      .catch(err => console.error(err))
+    
+  }, []);
   
   
 
@@ -21,13 +36,15 @@ function App() {
   function infoItem(respuesta){
     fetch(`${url}item/${respuesta}`)
       .then((res) => res.json())
-      .then((item) => setItem(item));
+      .then((item) => setItem(item))
+      .catch((err)=> console.log(err));
       description(respuesta);
   }
   function description(respuesta){
     fetch(`${url}item/${respuesta}/description`)
       .then((res) => res.json())
       .then((descripcion) => setDescripcion(descripcion))
+      .catch((err)=> console.log(err));
       /* .then((item) => setItem(item)) */;
 
   }
@@ -35,7 +52,9 @@ function App() {
   function busqueda(resultado) {
     fetch(`${url}api/${resultado}`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data))
+      .catch(
+        (err)=> console.log("holo"));;
   };
   
 
