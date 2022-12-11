@@ -41,8 +41,10 @@ function Buscador({ data, search }) {
   </main>)
   }else{
     
-    return(<div className="loader-container">
-    <div className="spinner"></div>
+    return(<div className="loader-container ">
+    <div className="spinner" />
+    <p>Conectando a la base de datos, aguarde un momento por favor</p>
+
   </div>)
   }
 
