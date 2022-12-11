@@ -18,7 +18,7 @@ function Buscador({ data, search }) {
     
     return(<main className="app-container">
       <Modal isOpen={isOpenMail} closeModal={closeModalMail}  >
-                <div className="card" style={{ width: " 18rem" }} >
+                <div className="card" style={{ width: " 21rem", padding: "10px" }} >
                     <div className="card-body">
                         <h3 className="card-subtitle mb-3"  >Recuerda que esto no es mercado libre</h3>
                         <h3 className="card-subtitle mb-3"  >aqui no podrás comprar ni vender, solo realiza la busqueda</h3>

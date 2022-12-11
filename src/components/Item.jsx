@@ -17,7 +17,7 @@ function Item({ item, descripcion, infoItem }) {
         ((item !== null) && (item.id === item2)) ?
             (<main className="item-result">
                 <Modal isOpen={isOpenMail} closeModal={closeModalMail}  >
-                <div className="card" style={{ width: " 18rem" }} >
+                <div className="card" style={{ width: " 21rem", padding: "10px" }} >
                     <div className="card-body">
                         <h3 className="card-subtitle mb-3"  >Hasta aquí llega la práctica de la api</h3>
 
